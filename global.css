@@ -1,0 +1,149 @@
+:root {
+    --curve: cubic-bezier(.24,1.19,.43,1.654);
+}
+
+@font-face {
+    font-family: Fredoka, sans-serif;
+    src: url("fonts/Fredoka One.ttf")
+}
+
+@font-face {
+    font-family: Rubik, sans-serif;
+    src: url("fonts/Rubik.ttf")
+}
+
+@font-face {
+    font-family: JBMonoCodeFont, sans-serif;
+    src: url("fonts/Jetbrains Mono.ttf")
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+
+    background-color: #262626;
+
+    scrollbar-width: none;
+}
+
+html, body {
+    overscroll-behavior: none;
+}
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+    z-index: 10;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Rubik, sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: pre-wrap;
+}
+
+h1 {font-size: 45px;}
+h2 {font-size: 40px;}
+h3 {font-size: 35px;}
+h4 {font-size: 25px;}
+h5 {font-size: 17px;}
+
+p {
+    font-family: Fredoka, sans-serif;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+a {
+    font-family: Fredoka, sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    transition: font-size 0.3s var(--curve);
+    cursor: pointer;
+}
+
+h1 a {
+    display: inline-block;
+    transition: transform 0.3s var(--curve);
+    cursor: pointer;
+}
+
+h1 a:hover {
+    transform: scale(1.1);
+}
+
+.tileable-stars-black {
+    background-image: url("tile.png");
+    background-size: 100px;
+    background-repeat: repeat;
+    height: 100vh;
+
+    display: grid;
+    position: relative;
+    text-align: center;
+    color: white;
+    align-items: center;
+
+    animation: scrollStars 60s linear infinite;
+}
+
+@keyframes scrollStars {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1000px -700px;
+    }
+}
+
+#editor {
+    font-family: JBMonoCodeFont, sans-serif;
+    background-color: black;
+    color: white;
+
+    max-height: 70vh;
+    min-height: 70vh;
+    max-width: 75vw;
+    min-width: 75vw;
+    resize: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+textarea::selection {
+    background-color: #6b5fff;
+    color: white;
+}
